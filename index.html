@@ -1,152 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>IX-ON | World-Class Experience</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{--dark:#001a34;--light:#b7d4ff}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;scroll-behavior:smooth}
-body{background:#000;color:#fff}
-
-/* NAV */
-nav{position:fixed;width:100%;top:0;padding:20px 60px;display:flex;justify-content:space-between;z-index:1000;background:rgba(0,0,0,.6);backdrop-filter:blur(12px)}
-nav a{color:#fff;text-decoration:none;margin-left:25px;font-size:.95rem}
-
-/* HERO */
-header{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-header::before{content:"";position:absolute;width:200%;height:200%;background:radial-gradient(circle,var(--light),transparent 40%);animation:move 10s linear infinite;opacity:.08}
-@keyframes move{0%{transform:translate(-20%,-20%)}100%{transform:translate(20%,20%)}}
-header h1{font-size:4rem;letter-spacing:1px}
-header p{margin-top:15px;font-size:1.2rem;opacity:.8}
-.btn{display:inline-block;margin-top:30px;padding:15px 35px;border-radius:40px;background:linear-gradient(45deg,var(--light),#fff);color:#000;text-decoration:none;font-weight:600}
-
-section{padding:100px 20px}
-.container{max-width:1200px;margin:auto}
-
-/* GLASS CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;margin-top:40px}
-.card{padding:30px;border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);transition:.4s}
-.card:hover{transform:translateY(-12px) scale(1.03)}
-
-h2{font-size:2.7rem;margin-bottom:20px}
-
-/* SPLIT SECTION */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.split div{opacity:.9}
-
-/* TIMELINE */
-.timeline{margin-top:40px;border-left:2px solid var(--light);padding-left:20px}
-.timeline div{margin-bottom:25px}
-
-/* ANIMATION */
-.fade{opacity:0;transform:translateY(50px);transition:1s}
-.fade.show{opacity:1;transform:translateY(0)}
-
-footer{text-align:center;padding:40px;background:#000;border-top:1px solid rgba(255,255,255,.1)}
-
-@media(max-width:768px){
-.split{grid-template-columns:1fr}
-header h1{font-size:2.5rem}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-<div><strong>IX-ON</strong></div>
-<div>
-<a href="#hub">Hub</a>
-<a href="#lounge">Lounge</a>
-<a href="#solution">Solution</a>
-<a href="#process">Process</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-
-<header>
-<div>
-<h1>Innovate Tomorrow, Today</h1>
-<p>Engineering the Future Through Intelligence, Collaboration & Execution</p>
-<a href="#hub" class="btn">Enter IX-ON</a>
-</div>
-</header>
-
-<section id="hub" class="fade">
-<div class="container split">
-<div>
-<h2>Tech Hub</h2>
-<p>Strategic consulting to define, architect and accelerate digital transformation with precision and scalability.</p>
-</div>
-<div class="card">Enterprise-grade architecture design</div>
-</div>
-</section>
-
-<section id="lounge" class="fade">
-<div class="container split">
-<div class="card">Global innovation community</div>
-<div>
-<h2>Tech Lounge</h2>
-<p>Where innovators collaborate, experiment and build the next generation of technology solutions.</p>
-</div>
-</div>
-</section>
-
-<section id="solution" class="fade">
-<div class="container split">
-<div>
-<h2>Tech Solution</h2>
-<p>Execution engine delivering high-performance systems across software, data, and security.</p>
-</div>
-<div class="card">Scalable, secure, production-ready delivery</div>
-</div>
-</section>
-
-<section id="process" class="fade">
-<div class="container">
-<h2>Execution Framework</h2>
-<div class="timeline">
-<div>Discover & Define</div>
-<div>Architect & Design</div>
-<div>Build & Integrate</div>
-<div>Scale & Optimise</div>
-</div>
-</div>
-</section>
-
-<section class="fade">
-<div class="container">
-<h2>Why IX-ON</h2>
-<div class="grid">
-<div class="card">Consult + Build + Scale</div>
-<div class="card">Elite Engineering Mindset</div>
-<div class="card">Future-proof Systems</div>
-<div class="card">Innovation-led Growth</div>
-</div>
-</div>
-</section>
-
-<section id="contact" class="fade">
-<div class="container" style="text-align:center">
-<h2>Let’s Build What’s Next</h2>
-<p>Partner with IX-ON to lead the next wave of innovation.</p>
-<a href="mailto:info@ix-on.com" class="btn">Start Conversation</a>
-</div>
-</section>
-
-<footer>
-<p>© 2026 IX-ON | Built for the Future</p>
-</footer>
-
-<script>
-const faders=document.querySelectorAll('.fade');
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.2});
-faders.forEach(el=>obs.observe(el));
-</script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IX-ON | Process Mapping, Data Lineage &amp; AI Readiness</title>
+    <meta name="description" content="Enterprise process mapping consultancy with data lineage readiness for AI scalability and automated documentation pipelines. Featuring North Star Mortgage and SME Loan Case Management solutions." />
+    <meta property="og:title" content="IX-ON | Process Mapping, Data Lineage &amp; AI Readiness" />
+    <meta property="og:description" content="Enterprise process mapping consultancy with data lineage readiness for AI scalability and automated documentation pipelines. Featuring North Star Mortgage and SME Loan Case Management solutions." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-black text-white antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
