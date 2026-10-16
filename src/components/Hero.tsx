@@ -6,9 +6,9 @@ export const Hero: React.FC = () => {
     <header className="hero-header">
       <div className="z-10 max-w-5xl px-4 mx-auto">
         {/* Top Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-md mb-8 hover:border-[#b7d4ff]/40 transition-colors">
-          <Sparkles size={14} className="text-[#38bdf8] animate-pulse" />
-          <span className="text-xs uppercase tracking-widest text-gray-200 font-medium">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D8CABA] shadow-xs mb-8 hover:border-[#B59E89] transition-colors">
+          <Sparkles size={14} className="text-[#8C735D]" />
+          <span className="text-xs uppercase tracking-widest text-[#2D333F] font-semibold">
             Process Mapping &amp; Data Lineage for Enterprise AI
           </span>
         </div>
@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
         {/* Main Headline */}
         <h1 className="hero-h1">
           Current Process Mapping with <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-white via-[#b7d4ff] to-[#38bdf8] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#14171F] via-[#2C3340] to-[#78614E] bg-clip-text text-transparent">
             Data Lineage Readiness to AI
           </span>
         </h1>
@@ -40,38 +40,46 @@ export const Hero: React.FC = () => {
           </a>
         </div>
 
-        {/* Core Capability Value Props */}
+        {/* Core Capability Value Props in Light Theme */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 max-w-4xl mx-auto text-left">
-          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-            <div className="flex items-center gap-2 text-[#38bdf8] mb-1">
-              <GitFork size={16} />
-              <span className="text-xs font-semibold text-white">Process Discovery</span>
+          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
+                <GitFork size={14} />
+              </div>
+              <span className="text-xs font-bold text-[#14171F]">Process Discovery</span>
             </div>
-            <p className="text-[11px] text-gray-400">Micro-level As-Is workflow mapping &amp; friction analysis</p>
+            <p className="text-[12px] text-[#586170] leading-snug">Micro-level As-Is workflow mapping &amp; friction analysis</p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-            <div className="flex items-center gap-2 text-[#b7d4ff] mb-1">
-              <Cpu size={16} />
-              <span className="text-xs font-semibold text-white">AI Data Lineage</span>
+          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
+                <Cpu size={14} />
+              </div>
+              <span className="text-xs font-bold text-[#14171F]">AI Data Lineage</span>
             </div>
-            <p className="text-[11px] text-gray-400">Field-level provenance and vector context readiness</p>
+            <p className="text-[12px] text-[#586170] leading-snug">Field-level provenance and vector context readiness</p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-            <div className="flex items-center gap-2 text-[#38bdf8] mb-1">
-              <FileCode2 size={16} />
-              <span className="text-xs font-semibold text-white">Automated Pipelines</span>
+          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
+                <FileCode2 size={14} />
+              </div>
+              <span className="text-xs font-bold text-[#14171F]">Automated Pipelines</span>
             </div>
-            <p className="text-[11px] text-gray-400">Living documentation syncing with live APIs and code</p>
+            <p className="text-[12px] text-[#586170] leading-snug">Living documentation syncing with live APIs and code</p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-            <div className="flex items-center gap-2 text-emerald-400 mb-1">
-              <CheckCircle2 size={16} />
-              <span className="text-xs font-semibold text-white">North Star Engines</span>
+          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
+                <CheckCircle2 size={14} />
+              </div>
+              <span className="text-xs font-bold text-[#14171F]">North Star Engines</span>
             </div>
-            <p className="text-[11px] text-gray-400">Mortgage &amp; SME Loan Case Management ready to deploy</p>
+            <p className="text-[12px] text-[#586170] leading-snug">Mortgage &amp; SME Loan Case Management ready to deploy</p>
           </div>
         </div>
       </div>

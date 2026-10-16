@@ -22,7 +22,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-[#38bdf8] selection:text-black">
+    <div className="min-h-screen bg-[#F9F7F4] text-[#14171F] selection:bg-[#D8CABA] selection:text-[#14171F]">
       <Navbar />
       <main>
         <Hero />

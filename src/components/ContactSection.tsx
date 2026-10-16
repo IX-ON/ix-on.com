@@ -41,17 +41,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
   };
 
   return (
-    <section id="contact" ref={ref} className={`fade ${isVisible ? 'show' : ''} relative`}>
+    <section id="contact" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#FAF8F5] border-t border-[#E8DFD2] relative`}>
       <div className="container-custom max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/20 text-[#38bdf8] text-xs font-semibold tracking-wider uppercase mb-3">
-            <Sparkles size={14} />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE8DE] border border-[#D8CABA] text-[#14171F] text-xs font-semibold tracking-wider uppercase mb-3 shadow-xs">
+            <Sparkles size={14} className="text-[#8C735D]" />
             <span>Consultancy Assessment</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#14171F] tracking-tight">
             Schedule an Enterprise AI Readiness &amp; Lineage Audit
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 mt-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-[#4D5564] mt-3 max-w-2xl mx-auto leading-relaxed">
             Partner with IX-ON to map your current processes, verify data lineage for generative AI, 
             or deploy the North Star Mortgage &amp; SME Loan Case Management solutions.
           </p>
@@ -67,12 +67,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
 
             <button
               onClick={copyEmail}
-              className="px-5 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/15 text-xs font-medium transition-all backdrop-blur-md inline-flex items-center gap-2"
+              className="px-5 py-3 rounded-full bg-white hover:bg-[#F5F0E9] text-[#14171F] border border-[#D8CABA] text-xs font-semibold transition-all shadow-xs inline-flex items-center gap-2"
             >
               {copied ? (
                 <>
-                  <Check size={15} className="text-emerald-400" />
-                  <span className="text-emerald-400">Copied to Clipboard</span>
+                  <Check size={15} className="text-emerald-700" />
+                  <span className="text-emerald-700">Copied to Clipboard</span>
                 </>
               ) : (
                 <span>Copy info@ix-on.com</span>
@@ -81,31 +81,31 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
           </div>
         </div>
 
-        {/* Audit Request Card */}
-        <div className="card max-w-2xl mx-auto bg-black/80 border-[#38bdf8]/20 shadow-2xl p-6 sm:p-8">
+        {/* Audit Request Card in Clean Light Theme */}
+        <div className="card max-w-2xl mx-auto bg-white border border-[#D8CABA] shadow-xl p-6 sm:p-8">
           {submitted ? (
             <div className="text-center py-10 animate-in fade-in duration-300">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 flex items-center justify-center mx-auto mb-4">
                 <Check size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-white">Assessment Request Received</h3>
-              <p className="text-sm text-gray-300 mt-2 max-w-md mx-auto leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#14171F]">Assessment Request Received</h3>
+              <p className="text-sm text-[#4D5564] mt-2 max-w-md mx-auto leading-relaxed">
                 Thank you. An IX-ON Enterprise Process &amp; Lineage Principal will review your submission and reach out within 24 hours.
               </p>
-              <div className="mt-6 p-4 rounded-xl bg-white/[0.02] border border-white/10 text-xs text-gray-400 max-w-sm mx-auto font-mono">
-                Assigned Topic: <span className="text-[#38bdf8] font-bold">{interest}</span>
+              <div className="mt-6 p-4 rounded-xl bg-[#FAF8F5] border border-[#D8CABA] text-xs text-[#586170] max-w-sm mx-auto font-mono">
+                Assigned Topic: <span className="text-[#14171F] font-bold">{interest}</span>
               </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
                   Primary Area of Engagement
                 </label>
                 <select
                   value={interest}
                   onChange={(e) => setInterest(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-black/80 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#D8CABA] rounded-xl text-[#14171F] text-sm focus:outline-none focus:border-[#14171F] focus:bg-white transition-colors"
                 >
                   <option value="North Star: Mortgage Case Management">North Star: Mortgage Case Management</option>
                   <option value="North Star: SME Loan Case Management">North Star: SME Loan Case Management</option>
@@ -118,7 +118,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
                     Your Full Name
                   </label>
                   <input
@@ -127,12 +127,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Sarah Jenkins"
-                    className="w-full px-3.5 py-2.5 bg-black/80 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#D8CABA] rounded-xl text-[#14171F] text-sm focus:outline-none focus:border-[#14171F] focus:bg-white transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
                     Work Email
                   </label>
                   <input
@@ -141,14 +141,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="s.jenkins@financial-corp.com"
-                    className="w-full px-3.5 py-2.5 bg-black/80 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#D8CABA] rounded-xl text-[#14171F] text-sm focus:outline-none focus:border-[#14171F] focus:bg-white transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
                     Organization / Institution
                   </label>
                   <input
@@ -157,18 +157,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Tier 1 Bank / FinTech / Enterprise"
-                    className="w-full px-3.5 py-2.5 bg-black/80 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#D8CABA] rounded-xl text-[#14171F] text-sm focus:outline-none focus:border-[#14171F] focus:bg-white transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
                     Engagement Timeline
                   </label>
                   <select
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-black/80 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8] transition-colors"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#D8CABA] rounded-xl text-[#14171F] text-sm focus:outline-none focus:border-[#14171F] focus:bg-white transition-colors"
                   >
                     <option value="Immediate (1-2 Weeks)">Immediate (1-2 Weeks)</option>
                     <option value="Within 30 Days">Within 30 Days</option>
@@ -179,7 +179,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
                   Brief Overview of Current Bottlenecks or Scope
                 </label>
                 <textarea
@@ -188,19 +188,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInterest 
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Outline your current process pain points, data systems, or North Star case management goals..."
-                  className="w-full px-3.5 py-2.5 bg-black/80 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8] transition-colors resize-none"
+                  className="w-full px-3.5 py-2.5 bg-[#FAF8F5] border border-[#D8CABA] rounded-xl text-[#14171F] text-sm focus:outline-none focus:border-[#14171F] focus:bg-white transition-colors resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#b7d4ff] via-[#38bdf8] to-white text-black font-bold text-sm hover:opacity-95 transition-opacity flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(56,189,248,0.3)] cursor-pointer"
+                className="w-full py-3.5 rounded-xl bg-[#14171F] hover:bg-[#252A36] text-[#FAF8F5] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Send size={16} />
                 <span>Submit Readiness Assessment Request</span>
               </button>
 
-              <p className="text-[11px] text-gray-400 text-center mt-2">
+              <p className="text-[11px] text-[#667080] text-center mt-2 font-medium">
                 All inquiries are protected by our standard enterprise mutual non-disclosure agreement (MNDA).
               </p>
             </form>

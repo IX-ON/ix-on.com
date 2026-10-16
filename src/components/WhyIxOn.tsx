@@ -29,13 +29,13 @@ export const WhyIxOn: React.FC = () => {
   ];
 
   return (
-    <section id="why-ixon" ref={ref} className={`fade ${isVisible ? 'show' : ''}`}>
+    <section id="why-ixon" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#FAF7F2] border-t border-[#E8DFD2]`}>
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#14171F] tracking-tight">
             Why Global Enterprises Partner with IX-ON
           </h2>
-          <p className="text-base text-gray-300 mt-3 leading-relaxed">
+          <p className="text-base text-[#4D5564] mt-3 leading-relaxed">
             Bridging operational strategy and deep software engineering to transform legacy financial 
             and enterprise workflows into AI-ready, scalable engines.
           </p>
@@ -45,14 +45,14 @@ export const WhyIxOn: React.FC = () => {
           {valuePillars.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="card group cursor-default">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#38bdf8] group-hover:scale-110 group-hover:border-[#38bdf8]/50 transition-all">
-                    <Icon size={22} />
+              <div key={idx} className="card group cursor-default bg-white border border-[#D8CABA]/70 hover:border-[#B59E89] shadow-xs hover:shadow-md transition-all">
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="p-3 rounded-xl bg-[#F5F0E9] border border-[#D8CABA] text-[#14171F] group-hover:scale-105 group-hover:bg-[#14171F] group-hover:text-[#FAF8F5] transition-all shadow-2xs">
+                    <Icon size={20} />
                   </div>
-                  <h3 className="text-lg font-bold text-white tracking-tight">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-[#14171F] tracking-tight">{item.title}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{item.subtitle}</p>
+                <p className="text-xs sm:text-sm text-[#4D5564] leading-relaxed font-medium">{item.subtitle}</p>
               </div>
             );
           })}

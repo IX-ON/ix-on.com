@@ -104,19 +104,19 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
   return (
     <section id="north-star" ref={ref} className={`fade ${isVisible ? 'show' : ''} relative`}>
       {/* Background glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#001a34] via-[#0284c7]/10 to-[#001a34] rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#EFE8DE]/50 via-[#E4DDD2]/40 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
 
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/25 text-[#38bdf8] text-xs font-semibold tracking-widest uppercase mb-4">
-            <Compass size={14} className="animate-spin-slow" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE8DE] border border-[#D8CABA] text-[#14171F] text-xs font-semibold tracking-widest uppercase mb-4 shadow-xs">
+            <Compass size={14} className="text-[#8C735D] animate-spin-slow" />
             <span>Product Ecosystem</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#14171F] tracking-tight">
             North Star Solutions
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 mt-4 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#475060] mt-4 leading-relaxed">
             Enterprise case management architectures powered by IX-ON's current process mapping, 
             verifiable data lineage, and automated living documentation pipelines.
           </p>
@@ -131,57 +131,57 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
               {/* Product Badge & Category */}
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div className="flex items-center gap-2.5">
-                  <span className="text-xs uppercase font-mono tracking-widest font-bold text-[#38bdf8] bg-[#38bdf8]/15 px-3 py-1 rounded-full border border-[#38bdf8]/30">
+                  <span className="text-xs uppercase font-mono tracking-widest font-bold text-[#FAF8F5] bg-[#14171F] px-3.5 py-1 rounded-full shadow-xs">
                     Product: North Star
                   </span>
-                  <span className="text-xs text-gray-400">Lending Suite</span>
+                  <span className="text-xs text-[#7A6B5D] font-semibold">Lending Suite</span>
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#38bdf8]/20 to-[#001a34] border border-[#38bdf8]/40 flex items-center justify-center text-[#b7d4ff] group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(56,189,248,0.25)]">
-                  <Home size={24} />
+                <div className="w-12 h-12 rounded-xl bg-[#F4EFEA] border border-[#D8CABA] flex items-center justify-center text-[#14171F] group-hover:scale-105 group-hover:bg-[#14171F] group-hover:text-[#FAF8F5] transition-all shadow-xs">
+                  <Home size={22} />
                 </div>
               </div>
 
               {/* Title & Tagline */}
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight group-hover:text-[#b7d4ff] transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#14171F] tracking-tight group-hover:text-[#78614E] transition-colors">
                 Mortgage Case Management
               </h3>
-              <p className="text-sm text-[#38bdf8] font-medium mt-1">
+              <p className="text-sm text-[#78614E] font-semibold mt-1">
                 Zero-Leakage Lending Lifecycle &amp; Traceable Underwriting
               </p>
 
               {/* Core Description */}
-              <p className="text-sm text-gray-300 mt-4 leading-relaxed">
+              <p className="text-sm text-[#4D5564] mt-4 leading-relaxed">
                 An enterprise-grade case orchestration engine that replaces fractured origination steps 
                 with mapped, machine-readable workstreams. Unifies borrower document ingestion, verified 
                 asset lineage, and automated TRID/RESPA compliance packages.
               </p>
 
               {/* Feature Highlights Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-6 border-t border-white/10 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-6 pt-6 border-t border-[#E8DFD2] text-xs">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">End-to-End Document Lineage (W-2, Deeds, AVM)</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">End-to-End Document Lineage (W-2, Deeds, AVM)</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Automated Underwriting Workstream &amp; Decisioning</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Automated Underwriting Workstream &amp; Decisioning</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Continuous TRID / CFPB Regulatory Audit Trail</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Continuous TRID / CFPB Regulatory Audit Trail</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Living Closing Package &amp; Auto-Generated Memos</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Living Closing Package &amp; Auto-Generated Memos</span>
                 </div>
               </div>
             </div>
 
             {/* Action Bar */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-8 pt-6 border-t border-[#E8DFD2] flex flex-wrap items-center justify-between gap-3">
               <button
                 onClick={() => setSelectedSolution(mortgageDetails)}
-                className="btn text-xs py-3 px-5 flex items-center gap-2 group-hover:shadow-[0_0_25px_rgba(183,212,255,0.4)]"
+                className="btn text-xs py-3 px-5 flex items-center gap-2"
               >
                 <span>Explore Mortgage Architecture</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -189,7 +189,7 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
 
               <button
                 onClick={() => onSelectSolutionForContact('North Star: Mortgage Case Management')}
-                className="text-xs text-gray-300 hover:text-white underline underline-offset-4 transition-colors font-medium"
+                className="text-xs text-[#14171F] hover:text-[#78614E] underline underline-offset-4 transition-colors font-bold"
               >
                 Request Deployment Brief &rarr;
               </button>
@@ -202,57 +202,57 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
               {/* Product Badge & Category */}
               <div className="flex items-center justify-between gap-4 mb-6">
                 <div className="flex items-center gap-2.5">
-                  <span className="text-xs uppercase font-mono tracking-widest font-bold text-[#38bdf8] bg-[#38bdf8]/15 px-3 py-1 rounded-full border border-[#38bdf8]/30">
+                  <span className="text-xs uppercase font-mono tracking-widest font-bold text-[#FAF8F5] bg-[#14171F] px-3.5 py-1 rounded-full shadow-xs">
                     Product: North Star
                   </span>
-                  <span className="text-xs text-gray-400">Commercial Credit Suite</span>
+                  <span className="text-xs text-[#7A6B5D] font-semibold">Commercial Credit Suite</span>
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#38bdf8]/20 to-[#001a34] border border-[#38bdf8]/40 flex items-center justify-center text-[#b7d4ff] group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(56,189,248,0.25)]">
-                  <Building2 size={24} />
+                <div className="w-12 h-12 rounded-xl bg-[#F4EFEA] border border-[#D8CABA] flex items-center justify-center text-[#14171F] group-hover:scale-105 group-hover:bg-[#14171F] group-hover:text-[#FAF8F5] transition-all shadow-xs">
+                  <Building2 size={22} />
                 </div>
               </div>
 
               {/* Title & Tagline */}
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight group-hover:text-[#b7d4ff] transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#14171F] tracking-tight group-hover:text-[#78614E] transition-colors">
                 SME Loan Case Management
               </h3>
-              <p className="text-sm text-[#38bdf8] font-medium mt-1">
+              <p className="text-sm text-[#78614E] font-semibold mt-1">
                 Real-Time Financial Lineage &amp; Automated Credit Decisioning
               </p>
 
               {/* Core Description */}
-              <p className="text-sm text-gray-300 mt-4 leading-relaxed">
+              <p className="text-sm text-[#4D5564] mt-4 leading-relaxed">
                 An agile commercial lending pipeline that synthesizes fragmented accounting ledgers, 
                 tax filings, and banking APIs into unified cash-flow lineage. Features real-time credit 
                 committee dossiers and living covenant documentation pipelines.
               </p>
 
               {/* Feature Highlights Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-6 border-t border-white/10 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-6 pt-6 border-t border-[#E8DFD2] text-xs">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Multi-Bank &amp; ERP Cash Flow Lineage (Xero/QBO)</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Multi-Bank &amp; ERP Cash Flow Lineage (Xero/QBO)</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Automated Financial Ratio &amp; DSCR Stress Models</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Automated Financial Ratio &amp; DSCR Stress Models</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Dynamic Term-Sheet &amp; Facility Doc Generation</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Dynamic Term-Sheet &amp; Facility Doc Generation</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 size={15} className="text-[#38bdf8] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Continuous Post-Loan Covenant Health Tracing</span>
+                  <CheckCircle2 size={15} className="text-[#8C735D] shrink-0 mt-0.5" />
+                  <span className="text-[#2C313C] font-medium">Continuous Post-Loan Covenant Health Tracing</span>
                 </div>
               </div>
             </div>
 
             {/* Action Bar */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-8 pt-6 border-t border-[#E8DFD2] flex flex-wrap items-center justify-between gap-3">
               <button
                 onClick={() => setSelectedSolution(smeDetails)}
-                className="btn text-xs py-3 px-5 flex items-center gap-2 group-hover:shadow-[0_0_25px_rgba(183,212,255,0.4)]"
+                className="btn text-xs py-3 px-5 flex items-center gap-2"
               >
                 <span>Explore SME Loan Architecture</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -260,7 +260,7 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
 
               <button
                 onClick={() => onSelectSolutionForContact('North Star: SME Loan Case Management')}
-                className="text-xs text-gray-300 hover:text-white underline underline-offset-4 transition-colors font-medium"
+                className="text-xs text-[#14171F] hover:text-[#78614E] underline underline-offset-4 transition-colors font-bold"
               >
                 Request Deployment Brief &rarr;
               </button>
@@ -270,21 +270,21 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
         </div>
 
         {/* Integration Callout */}
-        <div className="mt-12 p-6 rounded-2xl bg-white/[0.02] border border-white/10 text-center max-w-4xl mx-auto backdrop-blur-md">
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#FFFFFF] border border-[#D8CABA] text-center max-w-4xl mx-auto shadow-sm">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-left">
-              <h4 className="text-sm font-semibold text-white flex items-center gap-2">
-                <Sparkles size={16} className="text-[#38bdf8]" />
+              <h4 className="text-base font-bold text-[#14171F] flex items-center gap-2">
+                <Sparkles size={16} className="text-[#8C735D]" />
                 Custom Solution Integration with IX-ON
               </h4>
-              <p className="text-xs text-gray-400 mt-1 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#586170] mt-1 max-w-xl leading-relaxed">
                 Need to connect North Star Case Management with your proprietary core banking systems, 
                 legacy document vaults, or private AI models? IX-ON engineers custom integration pipelines.
               </p>
             </div>
             <a
               href="#contact"
-              className="btn-secondary text-xs shrink-0 py-2.5 px-4"
+              className="btn-secondary text-xs shrink-0 py-3 px-5"
             >
               Discuss System Integration
             </a>
