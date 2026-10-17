@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight, GitFork, FileCode2, Cpu, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 
 interface HeroProps {
   onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
@@ -7,100 +7,115 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
   return (
-    <header className="hero-header">
-      <div className="z-10 max-w-5xl px-4 mx-auto">
-        {/* Top Badge */}
-        <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D8CABA] shadow-xs mb-8 hover:border-[#B59E89] transition-colors">
-          <Sparkles size={14} className="text-[#8C735D]" />
-          <span className="text-xs uppercase tracking-widest text-[#2D333F] font-semibold">
-            Process Mapping &amp; Data Lineage for Enterprise AI
-          </span>
-          <span className="text-[#D8CABA] hidden sm:inline">&bull;</span>
-          <button
-            onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
-            className="text-[11px] font-bold text-[#78614E] hover:text-[#14171F] flex items-center gap-1 cursor-pointer transition-colors"
-          >
-            <span>North Star Clouds (Paid Access) &rarr;</span>
-          </button>
+    <section className="pt-36 pb-20 lg:pt-44 lg:pb-28 bg-[#F8F6F1] border-b border-[#E5DCCF]">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Proposition */}
+          <div className="lg:col-span-7 space-y-7">
+            {/* Clean unboxed editorial kicker (No pill box, no sparkle icon) */}
+            <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#786450]">
+              <span>Systems Architecture</span>
+              <span aria-hidden="true">&bull;</span>
+              <span>Data Lineage</span>
+              <span aria-hidden="true">&bull;</span>
+              <span>Enterprise AI Readiness</span>
+            </div>
+
+            {/* Main Headline with balanced wrap */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#12151B] tracking-tight leading-[1.08] text-balance">
+              Current process mapping with data lineage readiness for AI.
+            </h1>
+
+            {/* Clear, concrete value proposition without buzzword fluff */}
+            <p className="text-base sm:text-lg text-[#4B5363] leading-relaxed max-w-2xl">
+              IX-ON audits operational bottlenecks, traces field-level data provenance, 
+              and engineers self-updating automated documentation pipelines. We ensure your 
+              enterprise workflows and lending systems are rigorously structured before AI models are deployed.
+            </p>
+
+            {/* Action buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#diagnostic" className="btn-primary">
+                <span>Start Systems Diagnostic</span>
+                <ArrowRight size={16} />
+              </a>
+
+              <a href="#north-star" className="btn-secondary">
+                <span>North Star Solutions</span>
+              </a>
+
+              <button
+                onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#12151B] hover:text-[#786450] transition-colors py-2 px-3 cursor-pointer"
+              >
+                <Lock size={12} className="text-[#786450]" />
+                <span>North Star Clouds (Paid Access) &rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Architectural Photography Focal Anchor */}
+          <div className="lg:col-span-5">
+            <div className="relative rounded-2xl overflow-hidden border border-[#D9CEBF] shadow-lg bg-white">
+              <img
+                src="/src/assets/images/hero_consultancy_architecture_1792269424922.jpg"
+                alt="Executive Boardroom and Systems Consultancy Team in London"
+                className="w-full h-80 sm:h-96 lg:h-[420px] object-cover"
+                loading="eager"
+              />
+              <div className="p-4 bg-white border-t border-[#E5DCCF] flex items-center justify-between text-xs text-[#4B5363]">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-[#12151B]">Advisory Practice:</span>
+                  <span>Financial Services &amp; Lending Operations</span>
+                </div>
+                <span className="text-[#786450] font-mono text-[11px]">London &bull; Edinburgh</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        {/* Main Headline */}
-        <h1 className="hero-h1">
-          Current Process Mapping with <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-[#14171F] via-[#2C3340] to-[#78614E] bg-clip-text text-transparent">
-            Data Lineage Readiness to AI
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="hero-p">
-          IX-ON is an elite consultancy engineering enterprise scalability through meticulous 
-          as-is process mapping, regulatory data lineage assurance, and self-updating 
-          automated documentation pipelines that prime your operations for generative and predictive AI.
-        </p>
-
-        {/* Primary Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-9">
-          <a href="#north-star" className="btn">
-            <span>Explore North Star Solutions</span>
-            <ArrowRight size={17} />
-          </a>
-
-          <button
-            onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
-            className="btn-secondary flex items-center gap-2 cursor-pointer"
-          >
-            <span>North Star Clouds Access</span>
-          </button>
-
-          <a href="#contact" className="px-5 py-3 rounded-full text-xs font-semibold text-[#586170] hover:text-[#14171F] hover:bg-[#EFE8DE] transition-colors">
-            <span>Schedule Lineage Audit &rarr;</span>
-          </a>
-        </div>
-
-        {/* Core Capability Value Props in Light Theme */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 max-w-4xl mx-auto text-left">
-          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
-                <GitFork size={14} />
-              </div>
-              <span className="text-xs font-bold text-[#14171F]">Process Discovery</span>
+        {/* 4-Column Proof & Metric Strip below Hero split */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 pt-12 border-t border-[#E5DCCF]">
+          <div>
+            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
+              &pound;42M+
             </div>
-            <p className="text-[12px] text-[#586170] leading-snug">Micro-level As-Is workflow mapping &amp; friction analysis</p>
+            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
+              Lending &amp; case workflows mapped
+            </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
-                <Cpu size={14} />
-              </div>
-              <span className="text-xs font-bold text-[#14171F]">AI Data Lineage</span>
+          <div>
+            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
+              100%
             </div>
-            <p className="text-[12px] text-[#586170] leading-snug">Field-level provenance and vector context readiness</p>
+            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
+              Field-level data provenance verified
+            </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
-                <FileCode2 size={14} />
-              </div>
-              <span className="text-xs font-bold text-[#14171F]">Automated Pipelines</span>
+          <div>
+            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
+              -65%
             </div>
-            <p className="text-[12px] text-[#586170] leading-snug">Living documentation syncing with live APIs and code</p>
+            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
+              Average underwriting turnaround latency
+            </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-white border border-[#D8CABA]/70 shadow-xs hover:border-[#B59E89] hover:shadow-md transition-all">
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-6 h-6 rounded-md bg-[#F4EFEA] text-[#14171F] flex items-center justify-center">
-                <CheckCircle2 size={14} />
-              </div>
-              <span className="text-xs font-bold text-[#14171F]">North Star Engines</span>
+          <div>
+            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
+              72h
             </div>
-            <p className="text-[12px] text-[#586170] leading-snug">Mortgage &amp; SME Loan Case Management ready to deploy</p>
+            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
+              Systems Discovery &amp; proposal delivery
+            </p>
           </div>
         </div>
+
       </div>
-    </header>
+    </section>
   );
 };

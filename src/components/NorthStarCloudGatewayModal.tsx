@@ -211,7 +211,7 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-[#FAF8F5] border border-[#D8CABA] text-[#586170] hover:text-[#14171F] hover:bg-[#EFE8DE] transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-full bg-[#F8F6F1] border border-[#E5DCCF] text-[#4B5363] hover:text-[#12151B] hover:bg-[#EAE3D6] transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X size={20} />
@@ -219,20 +219,20 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
 
         {/* Modal Header */}
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs uppercase font-mono tracking-widest text-[#FAF8F5] font-bold bg-[#14171F] px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5">
+          <span className="text-xs uppercase font-mono tracking-widest text-[#F8F6F1] font-bold bg-[#12151B] px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5">
             <Lock size={11} />
             <span>Secured Gateway</span>
           </span>
-          <span className="text-xs text-[#7A6B5D] font-semibold flex items-center gap-1">
+          <span className="text-xs text-[#786450] font-semibold flex items-center gap-1">
             <Cloud size={13} />
             <span>North Star Clouds Project</span>
           </span>
         </div>
 
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-[#14171F] tracking-tight">
+        <h3 className="text-2xl sm:text-3xl font-extrabold text-[#12151B] tracking-tight">
           North Star Clouds Access Portal
         </h3>
-        <p className="text-xs sm:text-sm text-[#4D5564] mt-1.5 leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#4B5363] mt-1.5 leading-relaxed">
           Access to the hosted North Star Clouds project is restricted exclusively to authenticated 
           enterprise teams with a paid subscription or verified license key.
         </p>
@@ -241,23 +241,23 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
         {currentSession ? (
           <div className="mt-6 space-y-6">
             {/* Status Card */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-[#FAF8F5] to-[#F4EFEA] border-2 border-[#14171F]/15 shadow-sm">
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-[#F8F6F1] to-[#F1ECE2] border border-[#D9CEBF] shadow-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#14171F] text-[#FAF8F5] flex items-center justify-center shrink-0 shadow-xs">
-                    <UserCheck size={22} className="text-[#E8DFD8]" />
+                  <div className="w-12 h-12 rounded-2xl bg-[#12151B] text-[#F8F6F1] flex items-center justify-center shrink-0 shadow-xs">
+                    <UserCheck size={22} className="text-[#D9CEBF]" />
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-sm font-bold text-[#14171F]">{currentSession.email}</span>
+                      <span className="text-sm font-bold text-[#12151B]">{currentSession.email}</span>
                       <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-300 flex items-center gap-1">
                         <CheckCircle2 size={10} />
                         <span>PAID ACCESS ACTIVE</span>
                       </span>
                     </div>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-[#586170] mt-1">
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-[#4B5363] mt-1">
                       <span className="flex items-center gap-1">
-                        <Building size={12} className="text-[#8C735D]" />
+                        <Building size={12} className="text-[#786450]" />
                         <span>{currentSession.company}</span>
                       </span>
                       <span>&bull;</span>
@@ -268,32 +268,32 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
 
                 <button
                   onClick={handleSignOut}
-                  className="text-xs text-[#7A6B5D] hover:text-rose-600 underline font-semibold px-2 py-1 shrink-0 transition-colors"
+                  className="text-xs text-[#786450] hover:text-rose-600 underline font-semibold px-2 py-1 shrink-0 transition-colors"
                 >
                   Sign Out / Invalidate Key
                 </button>
               </div>
 
               {/* License Token Bar */}
-              <div className="mt-4 pt-3 border-t border-[#D8CABA]/70 flex flex-wrap items-center justify-between gap-2">
+              <div className="mt-4 pt-3 border-t border-[#D9CEBF]/70 flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2 text-xs">
-                  <Key size={13} className="text-[#78614E]" />
-                  <span className="text-[#586170] font-medium">Session Token:</span>
-                  <span className="font-mono text-xs font-bold text-[#14171F] bg-white px-2 py-0.5 rounded border border-[#D8CABA]">
+                  <Key size={13} className="text-[#786450]" />
+                  <span className="text-[#4B5363] font-medium">Session Token:</span>
+                  <span className="font-mono text-xs font-bold text-[#12151B] bg-white px-2 py-0.5 rounded border border-[#D9CEBF]">
                     {currentSession.token}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => copyToClipboard(currentSession.token)}
-                    className="text-xs text-[#14171F] hover:text-[#78614E] font-medium flex items-center gap-1 px-2 py-1 bg-white rounded border border-[#D8CABA]"
+                    className="text-xs text-[#12151B] hover:text-[#786450] font-medium flex items-center gap-1 px-2 py-1 bg-white rounded border border-[#D9CEBF]"
                   >
                     {copiedToken ? <Check size={12} className="text-emerald-700" /> : <Copy size={12} />}
                     <span>{copiedToken ? 'Token Copied' : 'Copy Token'}</span>
                   </button>
                   <button
                     onClick={copyDirectLaunchLink}
-                    className="text-xs text-[#14171F] hover:text-[#78614E] font-medium flex items-center gap-1 px-2 py-1 bg-white rounded border border-[#D8CABA]"
+                    className="text-xs text-[#12151B] hover:text-[#786450] font-medium flex items-center gap-1 px-2 py-1 bg-white rounded border border-[#D9CEBF]"
                   >
                     {copiedLink ? <Check size={12} className="text-emerald-700" /> : <ExternalLink size={12} />}
                     <span>{copiedLink ? 'Link Copied' : 'Copy Signed Link'}</span>

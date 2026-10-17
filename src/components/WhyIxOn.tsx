@@ -1,61 +1,66 @@
 import React from 'react';
 import { useFadeIn } from '../hooks/useFadeIn';
-import { Layers, ShieldCheck, Cpu, GitFork } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export const WhyIxOn: React.FC = () => {
   const { ref, isVisible } = useFadeIn();
 
-  const valuePillars = [
+  const differentiators = [
     {
-      title: 'Current Process Rigor',
-      icon: GitFork,
-      subtitle: 'We do not guess or rely on outdated org charts. We discover and codify the real as-is operational reality down to individual task handoffs.',
+      index: '01',
+      title: 'Vendor-Impartial Systems Architecture',
+      desc: 'Like premier Scottish and UK advisory firms, we do not sell proprietary black boxes or push specific software vendors. We architect the best technical solution for your existing stack.',
     },
     {
-      title: 'Regulated AI Lineage',
-      icon: ShieldCheck,
-      subtitle: 'Complete field-level data provenance ensuring compliance with BCBS 239, EU AI Act, and CFPB mandates before AI touches customer data.',
+      index: '02',
+      title: 'Ground-Level Operator Observation',
+      desc: 'We shadow underwriters, case handlers, and credit officers in their daily work. We capture the actual tacit workarounds, undocumented spreadsheets, and manual handoffs that executive slides overlook.',
     },
     {
-      title: 'Zero-Maintenance Living Docs',
-      icon: Layers,
-      subtitle: 'Continuous documentation pipelines eliminate technical and operational drift, keeping SOPs and API contracts automatically in sync.',
+      index: '03',
+      title: 'Deterministic Regulatory Assurance',
+      desc: 'Our lineage protocols are engineered to withstand strict statutory oversight from the FCA, PRA, BaFin, and CFPB. Every field has mathematical provenance before reaching an AI model.',
     },
     {
-      title: 'North Star Production Engines',
-      icon: Cpu,
-      subtitle: 'Field-tested case management architectures for Mortgage and SME Loan workflows delivering immediate ROI and enterprise scale.',
+      index: '04',
+      title: 'North Star Production Acceleration',
+      desc: 'We don’t just deliver PowerPoint recommendations. Our pre-architected North Star Mortgage and SME Loan Case Management platforms allow rapid, turnkey deployment on dedicated private clouds.',
     },
   ];
 
   return (
-    <section id="why-ixon" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#FAF7F2] border-t border-[#E8DFD2]`}>
+    <section id="why-ixon" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#F8F6F1] border-b border-[#E5DCCF]`}>
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#14171F] tracking-tight">
-            Why Global Enterprises Partner with IX-ON
+        <div className="max-w-3xl mb-14">
+          <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#786450] mb-3">
+            <span>Advisory Principles</span>
+            <span aria-hidden="true">&bull;</span>
+            <span>Why Financial Leaders Choose IX-ON</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12151B] tracking-tight text-balance">
+            Rigorous engineering over generic AI hype.
           </h2>
-          <p className="text-base text-[#4D5564] mt-3 leading-relaxed">
-            Bridging operational strategy and deep software engineering to transform legacy financial 
-            and enterprise workflows into AI-ready, scalable engines.
+          <p className="text-base text-[#4B5363] mt-4 leading-relaxed max-w-2xl">
+            We bridge high-level operational strategy with deep systems integration to deliver 
+            audit-proof, high-performance execution for modern lending operations.
           </p>
         </div>
 
-        <div className="grid-cards">
-          {valuePillars.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="card group cursor-default bg-white border border-[#D8CABA]/70 hover:border-[#B59E89] shadow-xs hover:shadow-md transition-all">
-                <div className="flex items-center gap-3.5 mb-4">
-                  <div className="p-3 rounded-xl bg-[#F5F0E9] border border-[#D8CABA] text-[#14171F] group-hover:scale-105 group-hover:bg-[#14171F] group-hover:text-[#FAF8F5] transition-all shadow-2xs">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#14171F] tracking-tight">{item.title}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {differentiators.map((diff) => (
+            <div key={diff.index} className="consultancy-card bg-white flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E5DCCF]">
+                  <span className="font-mono text-xs font-bold text-[#786450]">
+                    Standard {diff.index}
+                  </span>
+                  <CheckCircle2 size={16} className="text-[#786450]" />
                 </div>
-                <p className="text-xs sm:text-sm text-[#4D5564] leading-relaxed font-medium">{item.subtitle}</p>
+                <h3 className="text-xl font-bold text-[#12151B] mb-2">{diff.title}</h3>
+                <p className="text-sm text-[#4B5363] leading-relaxed">{diff.desc}</p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

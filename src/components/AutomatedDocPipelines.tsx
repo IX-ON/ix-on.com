@@ -1,99 +1,118 @@
 import React from 'react';
 import { useFadeIn } from '../hooks/useFadeIn';
-import { FileCode, RefreshCw, Check } from 'lucide-react';
+import { FileText, CheckCircle2 } from 'lucide-react';
 
 export const AutomatedDocPipelines: React.FC = () => {
   const { ref, isVisible } = useFadeIn();
 
-  const pipelineFeatures = [
+  const capabilities = [
     {
-      title: 'Living SOP Generation',
-      desc: 'Standard Operating Procedures automatically re-synthesize when underlying BPMN flows, APIs, or business rules are modified.',
-      tag: 'Zero-Maintenance',
+      index: '01',
+      title: 'Living SOP & Process Synthesis',
+      desc: 'Standard Operating Procedures automatically re-compile whenever underlying BPMN workflows, API contracts, or business rules are modified in production.',
+      highlight: 'Continuous Zero-Drift Sync',
     },
     {
-      title: 'Regulatory Audit Bundler',
-      desc: 'Pre-packaged, cryptographically verifiable compliance documentation compiled on-demand for CFPB, PRA, FCA, and BaFin audits.',
-      tag: 'Continuous Compliance',
+      index: '02',
+      title: 'Regulatory Audit Package Bundler',
+      desc: 'Pre-packaged, cryptographically verifiable compliance dossiers compiled on-demand for FCA, PRA, BaFin, and CFPB statutory examinations.',
+      highlight: 'Statutory Audit Readiness',
     },
     {
-      title: 'AI Agent Knowledge Injection',
-      desc: 'Documentation is vectorized into fresh, contextual knowledge stores so your enterprise AI assistants never reference deprecated policies.',
-      tag: 'Grounding Vector Engine',
+      index: '03',
+      title: 'AI Grounding Knowledge Injection',
+      desc: 'Operational documentation is automatically vectorized into curated knowledge stores so enterprise copilots never cite deprecated policies or stale interest rates.',
+      highlight: 'Grounded Context Store',
     },
     {
-      title: 'Machine-Readable Artifacts',
-      desc: 'Simultaneous export to OpenAPI, AsyncAPI, BPMN 2.0 XML, and Markdown for seamless cross-engineering alignment.',
-      tag: 'Universal Sync',
+      index: '04',
+      title: 'Machine-Readable Artifact Exports',
+      desc: 'Simultaneous continuous export to OpenAPI specs, AsyncAPI schemas, BPMN 2.0 XML, and clean markdown for cross-engineering clarity.',
+      highlight: 'Multi-Schema Export',
     },
   ];
 
   return (
-    <section id="automated-docs" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#FAF8F5] border-t border-[#E8DFD2]`}>
+    <section id="automated-docs" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#FFFFFF] border-b border-[#E5DCCF]`}>
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE8DE] border border-[#D8CABA] text-[#14171F] text-xs font-semibold tracking-wider uppercase mb-3 shadow-xs">
-            <FileCode size={14} className="text-[#8C735D]" />
-            <span>Zero-Drift Architecture</span>
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#786450] mb-3">
+            <span>Core Consultancy Service</span>
+            <span aria-hidden="true">&bull;</span>
+            <span>03. Automated Documentation Pipelines</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#14171F] tracking-tight">
-            Automated Documentation Pipelines
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12151B] tracking-tight text-balance">
+            Automated documentation pipelines that never go stale.
           </h2>
-          <p className="text-base text-[#4D5564] mt-3 leading-relaxed">
-            Eliminate stale confluence wikis, outdated PDF runbooks, and costly compliance audit findings. 
-            IX-ON engineers self-updating living documentation pipelines that synchronize in lockstep with 
-            your live code, APIs, and operational processes.
+          <p className="text-base text-[#4B5363] mt-4 leading-relaxed max-w-2xl">
+            Static Confluence wikis and 400-page PDF policy manuals decay within weeks of publication. 
+            IX-ON engineers self-updating living documentation pipelines that stay continuously synchronized 
+            with your live systems, database schemas, and operator decision gates.
           </p>
         </div>
 
-        {/* Feature Grid in Clean Light Theme */}
+        {/* 4-Item Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {pipelineFeatures.map((feat, idx) => (
-            <div key={idx} className="card group hover:border-[#B59E89] transition-all flex flex-col justify-between bg-white border border-[#D8CABA]/70 shadow-xs hover:shadow-md">
+          {capabilities.map((cap) => (
+            <div key={cap.index} className="consultancy-card flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-3.5">
-                  <span className="text-[11px] font-mono text-[#14171F] bg-[#EFE8DE] px-3 py-1 rounded-full border border-[#D8CABA] font-bold">
-                    {feat.tag}
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E5DCCF]">
+                  <span className="font-mono text-xs font-bold text-[#786450]">
+                    Pillar {cap.index}
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-[#FAF8F5] border border-[#D8CABA] text-[#7A6B5D] flex items-center justify-center group-hover:text-[#14171F] transition-colors shadow-2xs">
-                    <RefreshCw size={15} className="group-hover:rotate-180 transition-transform duration-500" />
-                  </div>
+                  <span className="text-xs text-[#4B5363] font-medium">
+                    {cap.highlight}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#14171F] mb-2">{feat.title}</h3>
-                <p className="text-xs sm:text-sm text-[#4D5564] leading-relaxed font-medium">{feat.desc}</p>
+                <h3 className="text-xl font-bold text-[#12151B] mb-2">{cap.title}</h3>
+                <p className="text-sm text-[#4B5363] leading-relaxed">{cap.desc}</p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#E8DFD2] flex items-center gap-2 text-xs text-[#586170] font-medium">
-                <Check size={14} className="text-emerald-700" />
-                <span>Integrated with CI/CD &amp; Version Control</span>
+              <div className="mt-6 pt-4 border-t border-[#E5DCCF] flex items-center gap-2 text-xs text-[#12151B] font-medium">
+                <CheckCircle2 size={15} className="text-[#786450]" />
+                <span>Integrated into version control &amp; release pipelines</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Live Terminal / Pipeline Demonstration */}
-        <div className="mt-12 rounded-2xl bg-[#14171F] border border-[#2B313E] overflow-hidden shadow-xl">
-          <div className="bg-[#1E232E] px-4 py-2.5 border-b border-white/10 flex items-center justify-between text-xs text-[#9AA3B2] font-mono">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#E57373]"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FFD54F]"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#81C784]"></span>
-              <span className="ml-2 text-white font-medium">ix-on-living-docs-pipeline.sh</span>
+        {/* Living Documentation Architecture Panel */}
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#F8F6F1] border border-[#D9CEBF]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#E5DCCF]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#786450]">
+                Architecture Overview
+              </span>
+              <h4 className="text-lg font-bold text-[#12151B] mt-1">
+                How Living Documentation Eliminates Regulatory Friction
+              </h4>
             </div>
-            <span className="text-[#E8DFD8] font-bold text-[11px] bg-white/10 px-2.5 py-0.5 rounded">STATUS: LIVE_SYNCHRONIZING</span>
+            <div className="flex items-center gap-4 text-xs text-[#4B5363]">
+              <span className="flex items-center gap-1.5">
+                <FileText size={14} className="text-[#786450]" />
+                <span>Format: Markdown / JSON-LD / BPMN 2.0</span>
+              </span>
+            </div>
           </div>
 
-          <div className="p-5 font-mono text-xs space-y-2 text-[#D8C7B8] leading-relaxed overflow-x-auto">
-            <p className="text-[#8C95A5]"># Triggered by Process Map Update: Mortgage Underwriting Flow [v4.1.2]</p>
-            <p className="text-white font-bold">$ ixon docs compile --scope enterprise --target regulatory-audit</p>
-            <p className="text-emerald-400">[SUCCESS] Scanned 48 micro-services &amp; 112 event topics</p>
-            <p className="text-emerald-400">[SUCCESS] Verified data lineage hashes for 340 schema fields</p>
-            <p className="text-[#FAF8F5]">[COMPILED] TRID-compliance-manifest-2026.pdf (Cryptographic SHA-256: 0x8a1b490f)</p>
-            <p className="text-[#FAF8F5]">[COMPILED] living-sop-underwriting-agent.md &amp; openapi-v3.yaml</p>
-            <p className="text-emerald-300">[VECTORIZED] Synchronized 1,420 chunks into Enterprise AI Vector Memory</p>
-            <p className="text-white font-bold">&gt;&gt; Documentation pipeline execution completed in 1.42s with ZERO drift.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 text-xs text-[#4B5363] leading-relaxed">
+            <div>
+              <strong className="text-[#12151B] block text-sm mb-1">1. Event-Driven Capture</strong>
+              Every API deployment, schema migration, or policy adjustment triggers an automated webhook, generating deterministic documentation diffs in real time.
+            </div>
+            <div>
+              <strong className="text-[#12151B] block text-sm mb-1">2. Multi-Stakeholder Compilation</strong>
+              One single source of operational truth compiles simultaneously into executive compliance memos, developer API docs, and frontline underwriter condition sheets.
+            </div>
+            <div>
+              <strong className="text-[#12151B] block text-sm mb-1">3. Immutable Audit Trails</strong>
+              Every revision is cryptographically hashed, providing external regulators with instant proof that operations match written policy without manual audit fire-drills.
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

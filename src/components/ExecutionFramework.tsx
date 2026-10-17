@@ -1,98 +1,140 @@
 import React from 'react';
 import { useFadeIn } from '../hooks/useFadeIn';
-import { Compass, CheckCircle2, Search, Database, FileCode2, Rocket } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
-export const ExecutionFramework: React.FC = () => {
+interface ExecutionFrameworkProps {
+  onSelectAuditOption?: (optionName: string) => void;
+}
+
+export const ExecutionFramework: React.FC<ExecutionFrameworkProps> = ({ onSelectAuditOption }) => {
   const { ref, isVisible } = useFadeIn();
 
-  const frameworkSteps = [
+  const engagementTiers = [
     {
-      phase: 'Phase 01',
-      title: 'Discover & Map (Current As-Is Exploration)',
-      icon: Search,
-      desc: 'Meticulous ethnographic process discovery, event-log extraction, stakeholder interviews, and shadow process identification to produce authoritative As-Is architecture maps.',
-      outputs: ['As-Is BPMN 2.0 Flow Maps', 'Latency & Bottleneck Audit', 'Friction Point Catalog'],
+      step: 'Phase 01',
+      title: 'Systems & Lineage Discovery',
+      price: '£995 Fixed Fee',
+      timeline: '72-Hour Delivery',
+      desc: 'An intensive, independent examination of your current operational workflows, manual handoffs, and data lineage gaps.',
+      deliverables: [
+        'Complete As-Is operational flow blueprint',
+        'Field-level data lineage and compliance gap report',
+        'Prioritized automation & bottleneck remediation plan',
+        'Fixed-price architecture & implementation proposal'
+      ],
+      cta: 'Book Discovery (£995)',
+      isCredited: '100% credited against full build if you proceed',
+      featured: true,
     },
     {
-      phase: 'Phase 02',
-      title: 'Data Lineage Readiness & Provenance Tracing',
-      icon: Database,
-      desc: 'Cataloging source systems, recording transformations, establishing schema contracts, and certifying data provenance so inputs are 100% compliant and hallucination-free for AI.',
-      outputs: ['Field-Level Lineage Matrix', 'BCBS 239 / EU AI Act Gap Analysis', 'Vector Context Schema'],
+      step: 'Phase 02',
+      title: 'Architecture & Pipeline Engineering',
+      price: 'Custom Scope',
+      timeline: '4–8 Weeks',
+      desc: 'Bespoke engineering of automated documentation pipelines, field-level provenance tracking, and core banking or ERP integrations.',
+      deliverables: [
+        'Deterministic data lineage graph implementation',
+        'Automated living documentation pipelines (BPMN / Markdown)',
+        'BCBS 239 & EU AI Act regulatory compliance manifests',
+        'Core system webhooks and API orchestration'
+      ],
+      cta: 'Discuss Implementation',
+      isCredited: 'Dedicated UK engineering delivery team',
+      featured: false,
     },
     {
-      phase: 'Phase 03',
-      title: 'Automated Living Documentation Engineering',
-      icon: FileCode2,
-      desc: 'Constructing continuous documentation pipelines that sync directly with APIs, database changes, and business rules, generating living SOPs and automated regulatory audit dossiers.',
-      outputs: ['CI/CD Doc Pipelines', 'Self-Healing SOP Repository', 'One-Click Compliance Exporter'],
-    },
-    {
-      phase: 'Phase 04',
-      title: 'Enterprise AI Activation & North Star Scale',
-      icon: Rocket,
-      desc: 'Deploying domain-specific case management engines—such as North Star Mortgage and SME Loan Case Management—equipped with grounded AI copilots and high-concurrency scalability.',
-      outputs: ['North Star Case Management Deployment', 'Underwriting Copilots', 'Autonomous Governance Guardrails'],
+      step: 'Phase 03',
+      title: 'North Star Clouds Production',
+      price: 'From £1,200/mo',
+      timeline: 'Instant Tenancy',
+      desc: 'Turnkey deployment of North Star Mortgage or SME Loan Case Management on dedicated, secure cloud infrastructure.',
+      deliverables: [
+        'Private multi-tenant cloud instance',
+        'Automated underwriting condition sheets & living docs',
+        'Continuous covenant & credit monitoring feeds',
+        'Token-gated access with SOC2 / ISO 27001 alignment'
+      ],
+      cta: 'Explore North Star Clouds',
+      isCredited: 'Licensed seats for underwriter teams',
+      featured: false,
     },
   ];
 
   return (
-    <section id="framework" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#F9F7F4] border-t border-[#E8DFD2]`}>
+    <section id="engagement" ref={ref} className={`fade ${isVisible ? 'show' : ''} bg-[#FFFFFF] border-b border-[#E5DCCF]`}>
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE8DE] border border-[#D8CABA] text-[#14171F] text-xs font-semibold tracking-wider uppercase mb-3 shadow-xs">
-            <Compass size={14} className="text-[#8C735D]" />
-            <span>Consultancy Methodology</span>
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#786450] mb-3">
+            <span>Commercial Engagement Model</span>
+            <span aria-hidden="true">&bull;</span>
+            <span>Transparent &bull; Fixed Scope</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#14171F] tracking-tight">
-            The IX-ON Execution Framework
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#12151B] tracking-tight text-balance">
+            How we engage with financial institutions.
           </h2>
-          <p className="text-base text-[#4D5564] mt-3 leading-relaxed">
-            A battle-tested 4-stage engineering roadmap designed to bridge the gap between messy legacy 
-            enterprise operations and autonomous, AI-driven scalability.
+          <p className="text-base text-[#4D5564] mt-4 leading-relaxed max-w-2xl">
+            Modelled on premier UK technology advisory practices. We de-risk every project 
+            by starting with a fixed-price, 72-hour systems discovery before undertaking enterprise build and deployment.
           </p>
         </div>
 
-        {/* Timeline Items in Clean Light Theme */}
-        <div className="timeline max-w-3xl mx-auto">
-          {frameworkSteps.map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <div key={idx} className="timeline-item group">
-                <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#D8CABA]/70 group-hover:border-[#B59E89] group-hover:shadow-md transition-all shadow-xs">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span className="text-xs font-mono uppercase tracking-widest text-[#78614E] font-bold">
-                      {step.phase}
-                    </span>
-                    <div className="w-7 h-7 rounded-lg bg-[#FAF8F5] border border-[#D8CABA] flex items-center justify-center text-[#14171F] shadow-2xs">
-                      <Icon size={14} />
+        {/* 3 Commercial Tiers */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          {engagementTiers.map((tier) => (
+            <div
+              key={tier.step}
+              className={`consultancy-card flex flex-col justify-between ${
+                tier.featured ? 'border-[#12151B] ring-1 ring-[#12151B] shadow-md' : 'border-[#E5DCCF]'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E5DCCF]">
+                  <span className="font-mono text-xs font-bold text-[#786450]">{tier.step}</span>
+                  <span className="text-xs font-semibold text-[#12151B]">{tier.timeline}</span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-[#12151B] tracking-tight">{tier.title}</h3>
+                
+                <div className="mt-3 mb-4">
+                  <div className="text-2xl font-extrabold text-[#12151B] tracking-tight">{tier.price}</div>
+                  <div className="text-xs text-[#786450] font-medium mt-0.5">{tier.isCredited}</div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#4B5363] leading-relaxed mb-6">
+                  {tier.desc}
+                </p>
+
+                <div className="pt-4 border-t border-[#E5DCCF] space-y-2.5">
+                  <div className="text-xs font-bold text-[#12151B] uppercase tracking-wide">Key Deliverables:</div>
+                  {tier.deliverables.map((deliv, dIdx) => (
+                    <div key={dIdx} className="flex items-start gap-2 text-xs text-[#4B5363]">
+                      <CheckCircle2 size={14} className="text-[#786450] shrink-0 mt-0.5" />
+                      <span>{deliv}</span>
                     </div>
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl font-bold text-[#14171F] tracking-tight mb-2">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-[#4D5564] leading-relaxed mb-4 font-medium">
-                    {step.desc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-[#E8DFD2]">
-                    {step.outputs.map((out, oIdx) => (
-                      <span
-                        key={oIdx}
-                        className="text-[11px] font-mono px-3 py-1 rounded-md bg-[#FAF8F5] text-[#2C313C] border border-[#D8CABA] flex items-center gap-1.5 font-medium shadow-2xs"
-                      >
-                        <CheckCircle2 size={12} className="text-emerald-700 font-bold" />
-                        {out}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+
+              <div className="mt-8 pt-6 border-t border-[#E5DCCF]">
+                <a
+                  href="#contact"
+                  onClick={() => onSelectAuditOption && onSelectAuditOption(`${tier.title} (${tier.price})`)}
+                  className={`w-full py-3 px-5 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                    tier.featured 
+                      ? 'bg-[#12151B] hover:bg-[#232834] text-white shadow-sm'
+                      : 'bg-white hover:bg-[#F8F6F1] text-[#12151B] border border-[#D9CEBF]'
+                  }`}
+                >
+                  <span>{tier.cta}</span>
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
