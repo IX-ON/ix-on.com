@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFadeIn } from '../hooks/useFadeIn';
 import { AlertCircle, CheckCircle2, Clock } from 'lucide-react';
+import processBlueprintImg from '../assets/images/process_mapping_engineering_1792269453446.jpg';
 
 export const ProcessMappingSection: React.FC = () => {
   const { ref, isVisible } = useFadeIn();
@@ -182,7 +183,10 @@ export const ProcessMappingSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-2xl overflow-hidden border border-[#D9CEBF] bg-white shadow-sm">
               <img
-                src="/src/assets/images/process_mapping_engineering_1792269453446.jpg"
+                src={processBlueprintImg}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/process_mapping_engineering.jpg';
+                }}
                 alt="Business Process Mapping Blueprint and Automated Systems Architecture"
                 className="w-full h-64 sm:h-72 object-cover"
                 loading="lazy"

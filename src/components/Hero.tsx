@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Lock } from 'lucide-react';
+import heroImage from '../assets/images/hero_consultancy_architecture_1792269424922.jpg';
 
 interface HeroProps {
   onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
@@ -59,7 +60,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden border border-[#D9CEBF] shadow-lg bg-white">
               <img
-                src="/src/assets/images/hero_consultancy_architecture_1792269424922.jpg"
+                src={heroImage}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/hero_consultancy_architecture.jpg';
+                }}
                 alt="Executive Boardroom and Systems Consultancy Team in London"
                 className="w-full h-80 sm:h-96 lg:h-[420px] object-cover"
                 loading="eager"

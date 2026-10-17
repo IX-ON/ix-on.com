@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFadeIn } from '../hooks/useFadeIn';
 import { NorthStarModal, SolutionDetails } from './NorthStarModal';
+import mortgageFintechImg from '../assets/images/mortgage_fintech_system_1792269440370.jpg';
 import { 
   Home, 
   Building2, 
@@ -155,7 +156,10 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
               {/* Image Preview */}
               <div className="mt-4 mb-5 rounded-xl overflow-hidden border border-[#E5DCCF]">
                 <img
-                  src="/src/assets/images/mortgage_fintech_system_1792269440370.jpg"
+                  src={mortgageFintechImg}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/mortgage_fintech_system.jpg';
+                  }}
                   alt="North Star Mortgage Case Management Interface"
                   className="w-full h-48 object-cover"
                   loading="lazy"
