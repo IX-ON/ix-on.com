@@ -1,16 +1,27 @@
 import React from 'react';
 import { Sparkles, ArrowRight, GitFork, FileCode2, Cpu, CheckCircle2 } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
   return (
     <header className="hero-header">
       <div className="z-10 max-w-5xl px-4 mx-auto">
         {/* Top Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D8CABA] shadow-xs mb-8 hover:border-[#B59E89] transition-colors">
+        <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D8CABA] shadow-xs mb-8 hover:border-[#B59E89] transition-colors">
           <Sparkles size={14} className="text-[#8C735D]" />
           <span className="text-xs uppercase tracking-widest text-[#2D333F] font-semibold">
             Process Mapping &amp; Data Lineage for Enterprise AI
           </span>
+          <span className="text-[#D8CABA] hidden sm:inline">&bull;</span>
+          <button
+            onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+            className="text-[11px] font-bold text-[#78614E] hover:text-[#14171F] flex items-center gap-1 cursor-pointer transition-colors"
+          >
+            <span>North Star Clouds (Paid Access) &rarr;</span>
+          </button>
         </div>
 
         {/* Main Headline */}
@@ -35,8 +46,15 @@ export const Hero: React.FC = () => {
             <ArrowRight size={17} />
           </a>
 
-          <a href="#contact" className="btn-secondary">
-            <span>Schedule Lineage Readiness Audit</span>
+          <button
+            onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+            className="btn-secondary flex items-center gap-2 cursor-pointer"
+          >
+            <span>North Star Clouds Access</span>
+          </button>
+
+          <a href="#contact" className="px-5 py-3 rounded-full text-xs font-semibold text-[#586170] hover:text-[#14171F] hover:bg-[#EFE8DE] transition-colors">
+            <span>Schedule Lineage Audit &rarr;</span>
           </a>
         </div>
 

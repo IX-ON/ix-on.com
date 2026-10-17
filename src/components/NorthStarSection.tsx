@@ -7,14 +7,22 @@ import {
   Building2, 
   ArrowRight, 
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Cloud,
+  Lock,
+  CreditCard,
+  ShieldCheck
 } from 'lucide-react';
 
 interface NorthStarSectionProps {
   onSelectSolutionForContact: (solutionName: string) => void;
+  onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
 }
 
-export const NorthStarSection: React.FC<NorthStarSectionProps> = ({ onSelectSolutionForContact }) => {
+export const NorthStarSection: React.FC<NorthStarSectionProps> = ({ 
+  onSelectSolutionForContact,
+  onOpenCloudGateway 
+}) => {
   const { ref, isVisible } = useFadeIn();
   const [selectedSolution, setSelectedSolution] = useState<SolutionDetails | null>(null);
 
@@ -269,8 +277,64 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
 
         </div>
 
+        {/* NORTH STAR CLOUDS SECURED ACCESS BANNER */}
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#14171F] via-[#1C202A] to-[#12141A] text-white border border-[#2B313E] shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-radial from-[#D8CABA]/15 to-transparent blur-2xl pointer-events-none"></div>
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[#E8DFD8] text-[11px] font-mono font-semibold tracking-wider uppercase mb-3">
+                <Lock size={12} className="text-[#D8CABA]" />
+                <span>Restricted Project &bull; Paid Shared Access Only</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                <Cloud size={28} className="text-[#E8DFD8]" />
+                <span>North Star Clouds Project</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-[#A6AFBD] mt-2 leading-relaxed">
+                Dedicated cloud execution platform hosting live Mortgage &amp; SME Loan case instances, real-time data lineage monitors, and automated documentation generation. Access is restricted exclusively to authenticated subscribers who pay for license seats.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-3 mt-4 text-[11px] text-[#D8CABA] font-mono">
+                <span className="flex items-center gap-1">
+                  <ShieldCheck size={13} className="text-emerald-400" />
+                  <span>Token-Gated Authentication</span>
+                </span>
+                <span>&bull;</span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle2 size={13} className="text-emerald-400" />
+                  <span>Dedicated Multi-Tenant Encryption</span>
+                </span>
+                <span>&bull;</span>
+                <span className="flex items-center gap-1">
+                  <CreditCard size={13} className="text-emerald-400" />
+                  <span>Subscription Verified Access</span>
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+              <button
+                onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+                className="px-5 py-3 rounded-full bg-white hover:bg-[#FAF8F5] text-[#14171F] font-bold text-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Lock size={14} />
+                <span>Launch Cloud (Paid Members)</span>
+              </button>
+
+              <button
+                onClick={() => onOpenCloudGateway && onOpenCloudGateway('subscribe')}
+                className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <CreditCard size={14} className="text-[#E8DFD8]" />
+                <span>Unlock Paid Cloud Access</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Integration Callout */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#FFFFFF] border border-[#D8CABA] text-center max-w-4xl mx-auto shadow-sm">
+        <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#FFFFFF] border border-[#D8CABA] text-center max-w-4xl mx-auto shadow-sm">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-left">
               <h4 className="text-base font-bold text-[#14171F] flex items-center gap-2">

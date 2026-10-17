@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { Menu, X, Compass, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Compass, ArrowUpRight, Lock, Cloud } from 'lucide-react';
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenCloudGateway }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -49,12 +53,24 @@ export const Navbar: React.FC = () => {
         ))}
       </div>
 
-      <div className="hidden sm:flex items-center gap-3">
+      <div className="hidden sm:flex items-center gap-2.5">
+        <button
+          onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+          className="px-3.5 py-2 rounded-full bg-white hover:bg-[#FAF8F5] text-[#14171F] border border-[#D8CABA] text-xs font-bold tracking-wide transition-all shadow-xs flex items-center gap-1.5 cursor-pointer hover:border-[#B59E89]"
+          title="Access secured North Star Clouds environment"
+        >
+          <div className="flex items-center gap-1">
+            <Cloud size={13} className="text-[#8C735D]" />
+            <Lock size={11} className="text-[#B59E89]" />
+          </div>
+          <span>North Star Clouds</span>
+        </button>
+
         <a
           href="#contact"
-          className="px-5 py-2 rounded-full bg-[#14171F] hover:bg-[#252A36] text-[#FAF8F5] text-xs font-semibold tracking-wide transition-all shadow-sm flex items-center gap-1.5"
+          className="px-4 py-2 rounded-full bg-[#14171F] hover:bg-[#252A36] text-[#FAF8F5] text-xs font-semibold tracking-wide transition-all shadow-sm flex items-center gap-1.5"
         >
-          <span>Lineage Readiness Audit</span>
+          <span>Lineage Audit</span>
           <ArrowUpRight size={14} className="text-[#E8DFD8]" />
         </a>
       </div>
@@ -90,7 +106,19 @@ export const Navbar: React.FC = () => {
               )}
             </a>
           ))}
-          <div className="pt-3 border-t border-[#D8CABA]">
+
+          <div className="pt-3 border-t border-[#D8CABA] flex flex-col gap-2.5">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenCloudGateway) onOpenCloudGateway('signin');
+              }}
+              className="w-full py-3 px-4 rounded-full bg-white border border-[#D8CABA] text-[#14171F] font-bold text-sm shadow-xs flex items-center justify-center gap-2"
+            >
+              <Lock size={14} className="text-[#8C735D]" />
+              <span>North Star Clouds (Secured Gateway)</span>
+            </button>
+
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
