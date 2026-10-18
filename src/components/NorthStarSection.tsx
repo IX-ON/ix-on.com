@@ -16,11 +16,15 @@ import {
 interface NorthStarSectionProps {
   onSelectSolutionForContact: (solutionName: string) => void;
   onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
+  onLaunchMergedPlatform?: () => void;
+  hasActiveSession?: boolean;
 }
 
 export const NorthStarSection: React.FC<NorthStarSectionProps> = ({ 
   onSelectSolutionForContact,
-  onOpenCloudGateway 
+  onOpenCloudGateway,
+  onLaunchMergedPlatform,
+  hasActiveSession = false,
 }) => {
   const { ref, isVisible } = useFadeIn();
   const [selectedSolution, setSelectedSolution] = useState<SolutionDetails | null>(null);
@@ -324,21 +328,33 @@ DATA LINEAGE REVISION: 12.0 (LIVE FINANCIAL FEED INTEGRATION)
             </div>
 
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-              <button
-                onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
-                className="px-6 py-3.5 rounded-full bg-white hover:bg-[#F8F6F1] text-[#12151B] font-bold text-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Lock size={14} />
-                <span>Launch Cloud (Paid Members)</span>
-              </button>
+              {hasActiveSession ? (
+                <button
+                  onClick={onLaunchMergedPlatform}
+                  className="px-6 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-black text-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer hover:scale-102"
+                >
+                  <Lock size={14} />
+                  <span>Open Merged Cloud Suite (Active Session)</span>
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+                    className="px-6 py-3 rounded-full bg-white hover:bg-[#F8F6F1] text-[#12151B] font-bold text-xs transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Lock size={13} />
+                    <span>Enter Encrypted Access Key</span>
+                  </button>
 
-              <button
-                onClick={() => onOpenCloudGateway && onOpenCloudGateway('subscribe')}
-                className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <CreditCard size={14} className="text-[#D9CEBF]" />
-                <span>Unlock Paid Cloud Access</span>
-              </button>
+                  <button
+                    onClick={() => onOpenCloudGateway && onOpenCloudGateway('subscribe')}
+                    className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <CreditCard size={13} className="text-[#D9CEBF]" />
+                    <span>Subscribe to Issue License Key</span>
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { Menu, X, Lock } from 'lucide-react';
+import { Menu, X, Lock, ShieldCheck, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
+  onLaunchMergedPlatform?: () => void;
+  hasActiveSession?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenCloudGateway }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  onOpenCloudGateway,
+  onLaunchMergedPlatform,
+  hasActiveSession = false,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -38,19 +44,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCloudGateway }) => {
       </nav>
 
       {/* Zone 3: Primary Actions */}
-      <div className="hidden sm:flex items-center gap-3 shrink-0">
-        <button
-          onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#12151B] bg-transparent hover:bg-[#EAE3D6] rounded-full border border-[#D9CEBF] transition-all cursor-pointer whitespace-nowrap shrink-0"
-          title="Access secured North Star Clouds environment"
-        >
-          <Lock size={12} className="text-[#786450]" />
-          <span>North Star Clouds</span>
-        </button>
+      <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+        {hasActiveSession ? (
+          <button
+            onClick={onLaunchMergedPlatform}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-white bg-emerald-800 hover:bg-emerald-900 rounded-full transition-all cursor-pointer whitespace-nowrap shadow-xs"
+            title="Open North Star Clouds (Active Encrypted Session)"
+          >
+            <ShieldCheck size={13} className="text-emerald-300" />
+            <span>North Star (Active)</span>
+          </button>
+        ) : (
+          <button
+            onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[#12151B] bg-transparent hover:bg-[#EAE3D6] rounded-full border border-[#D9CEBF] transition-all cursor-pointer whitespace-nowrap shrink-0"
+            title="Access North Star Clouds via encrypted license key"
+          >
+            <Lock size={12} className="text-[#786450]" />
+            <span>Encrypted Access 🔒</span>
+          </button>
+        )}
 
         <a
           href="#contact"
-          className="btn-primary text-xs py-2 px-4 whitespace-nowrap shrink-0"
+          className="btn-primary text-xs py-1.5 px-3.5 whitespace-nowrap shrink-0"
         >
           Book Discovery Call
         </a>
@@ -70,37 +87,49 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCloudGateway }) => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-[#F8F6F1] border-b border-[#E5DCCF] py-6 px-6 flex flex-col space-y-4 shadow-xl">
+          {hasActiveSession ? (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onLaunchMergedPlatform && onLaunchMergedPlatform();
+              }}
+              className="w-full py-2.5 px-4 rounded-xl bg-emerald-800 text-white font-bold text-xs flex items-center justify-center gap-2"
+            >
+              <ShieldCheck size={14} className="text-emerald-300" />
+              <span>Open North Star Clouds (Active Session)</span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenCloudGateway && onOpenCloudGateway('signin');
+              }}
+              className="w-full py-2.5 px-4 rounded-xl bg-[#12151B] text-white font-bold text-xs flex items-center justify-center gap-2"
+            >
+              <Lock size={13} className="text-[#D9CEBF]" />
+              <span>North Star Encrypted Client Portal</span>
+            </button>
+          )}
+
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-[#12151B] py-1 transition-colors"
+              className="text-[#12151B] text-sm font-semibold hover:text-[#786450] transition-colors py-1"
             >
               {link.label}
             </a>
           ))}
 
-          <div className="pt-4 border-t border-[#E5DCCF] flex flex-col gap-3">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenCloudGateway) onOpenCloudGateway('signin');
-              }}
-              className="w-full py-2.5 px-4 rounded-full bg-white border border-[#D9CEBF] text-[#12151B] font-semibold text-xs flex items-center justify-center gap-2"
-            >
-              <Lock size={13} className="text-[#786450]" />
-              <span>North Star Clouds (Secured Access)</span>
-            </button>
-
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-primary w-full text-center py-2.5 text-xs"
-            >
-              Book Discovery Call
-            </a>
-          </div>
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="btn-primary text-xs py-2.5 px-4 text-center mt-2 flex items-center justify-center gap-2"
+          >
+            <span>Book Discovery Call</span>
+            <ArrowRight size={13} />
+          </a>
         </div>
       )}
     </header>

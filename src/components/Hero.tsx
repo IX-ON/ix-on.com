@@ -1,12 +1,18 @@
 import React from 'react';
-import { ArrowRight, Lock } from 'lucide-react';
+import { ArrowRight, Lock, ShieldCheck } from 'lucide-react';
 import heroImage from '../assets/images/hero_consultancy_architecture_1792269424922.jpg';
 
 interface HeroProps {
   onOpenCloudGateway?: (tab: 'signin' | 'subscribe') => void;
+  onLaunchMergedPlatform?: () => void;
+  hasActiveSession?: boolean;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
+export const Hero: React.FC<HeroProps> = ({ 
+  onOpenCloudGateway,
+  onLaunchMergedPlatform,
+  hasActiveSession = false
+}) => {
   return (
     <section className="pt-36 pb-20 lg:pt-44 lg:pb-28 bg-[#F8F6F1] border-b border-[#E5DCCF]">
       <div className="container-custom">
@@ -14,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
           
           {/* Left Column: Proposition */}
           <div className="lg:col-span-7 space-y-7">
-            {/* Clean unboxed editorial kicker (No pill box, no sparkle icon) */}
+            {/* Clean unboxed editorial kicker */}
             <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#786450]">
               <span>Systems Architecture</span>
               <span aria-hidden="true">&bull;</span>
@@ -36,23 +42,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
             </p>
 
             {/* Action buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <a href="#diagnostic" className="btn-primary">
-                <span>Start Systems Diagnostic</span>
-                <ArrowRight size={16} />
+                <span>Start Systems Diagnostic (£995)</span>
+                <ArrowRight size={14} />
               </a>
 
-              <a href="#north-star" className="btn-secondary">
-                <span>North Star Solutions</span>
-              </a>
+              {hasActiveSession ? (
+                <button
+                  onClick={onLaunchMergedPlatform}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-md cursor-pointer hover:scale-102"
+                >
+                  <ShieldCheck size={14} className="text-emerald-300" />
+                  <span>North Star Clouds (Active Session)</span>
+                  <ArrowRight size={13} />
+                </button>
+              ) : (
+                <button
+                  onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
+                  className="btn-secondary flex items-center gap-2"
+                >
+                  <Lock size={13} className="text-[#786450]" />
+                  <span>Encrypted Client Portal (North Star)</span>
+                </button>
+              )}
+            </div>
 
-              <button
-                onClick={() => onOpenCloudGateway && onOpenCloudGateway('signin')}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#12151B] hover:text-[#786450] transition-colors py-2 px-3 cursor-pointer"
-              >
-                <Lock size={12} className="text-[#786450]" />
-                <span>North Star Clouds (Paid Access) &rarr;</span>
-              </button>
+            {/* Security Guarantee Kicker */}
+            <div className="text-[11px] text-[#786450] flex items-center gap-2 font-mono">
+              <Lock size={11} />
+              <span>North Star Clouds access is encrypted &bull; License tokens issued post-payment</span>
             </div>
           </div>
 
@@ -64,61 +83,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCloudGateway }) => {
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/images/hero_consultancy_architecture.jpg';
                 }}
-                alt="Executive Boardroom and Systems Consultancy Team in London"
-                className="w-full h-80 sm:h-96 lg:h-[420px] object-cover"
+                alt="Modern corporate engineering and structural glass architecture representing systems clarity"
+                className="w-full h-80 sm:h-96 object-cover object-center filter grayscale-[15%] contrast-[105%]"
                 loading="eager"
               />
-              <div className="p-4 bg-white border-t border-[#E5DCCF] flex items-center justify-between text-xs text-[#4B5363]">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#12151B]">Advisory Practice:</span>
-                  <span>Financial Services &amp; Lending Operations</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                <div className="text-white space-y-1">
+                  <span className="text-[10px] uppercase font-mono tracking-widest text-[#D9CEBF] font-semibold">
+                    Rigorous Enterprise Delivery
+                  </span>
+                  <p className="text-sm font-medium leading-snug">
+                    Verifiable process workflows &bull; Audit-ready data structures
+                  </p>
                 </div>
-                <span className="text-[#786450] font-mono text-[11px]">London &bull; Edinburgh</span>
               </div>
             </div>
           </div>
 
         </div>
-
-        {/* 4-Column Proof & Metric Strip below Hero split */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 pt-12 border-t border-[#E5DCCF]">
-          <div>
-            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
-              &pound;42M+
-            </div>
-            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
-              Lending &amp; case workflows mapped
-            </p>
-          </div>
-
-          <div>
-            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
-              100%
-            </div>
-            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
-              Field-level data provenance verified
-            </p>
-          </div>
-
-          <div>
-            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
-              -65%
-            </div>
-            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
-              Average underwriting turnaround latency
-            </p>
-          </div>
-
-          <div>
-            <div className="text-3xl lg:text-4xl font-extrabold text-[#12151B] tabular-nums tracking-tight">
-              72h
-            </div>
-            <p className="text-xs sm:text-sm text-[#4B5363] mt-1 font-medium">
-              Systems Discovery &amp; proposal delivery
-            </p>
-          </div>
-        </div>
-
       </div>
     </section>
   );

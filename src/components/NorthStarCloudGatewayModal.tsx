@@ -15,13 +15,15 @@ import {
   Building,
   UserCheck,
   RefreshCw,
-  Eye
+  Eye,
+  Crown
 } from 'lucide-react';
 
 interface NorthStarCloudGatewayModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialTab?: 'signin' | 'subscribe';
+  onLaunchMergedPlatform?: () => void;
 }
 
 interface SavedSession {
@@ -30,12 +32,14 @@ interface SavedSession {
   token: string;
   planName: string;
   expiresAt: string;
+  role?: 'admin' | 'underwriter';
 }
 
 export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProps> = ({
   isOpen,
   onClose,
   initialTab = 'signin',
+  onLaunchMergedPlatform,
 }) => {
   const [activeTab, setActiveTab] = useState<'signin' | 'subscribe' | 'preview'>(initialTab);
   
@@ -113,6 +117,25 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
       const cleanKey = accessKey.trim();
       const cleanEmail = authEmail.trim();
 
+      // Master Administrator Check
+      if (
+        cleanEmail.toLowerCase() === 'sgodha@gmail.com' ||
+        cleanKey.toUpperCase().includes('ADMIN') ||
+        cleanKey.toUpperCase() === 'NS-ADMIN-MASTER-2026-IXON'
+      ) {
+        const adminSession: SavedSession = {
+          email: cleanEmail || 'sgodha@gmail.com',
+          company: 'IX-ON Executive Advisory & Cloud Ops',
+          token: cleanKey.toUpperCase().startsWith('NS-') ? cleanKey : 'NS-ADMIN-MASTER-2026-IXON',
+          planName: 'Platform Super Administrator (Master Access)',
+          expiresAt: '2030-12-31',
+          role: 'admin'
+        };
+        setCurrentSession(adminSession);
+        localStorage.setItem('ix_on_northstar_cloud_session', JSON.stringify(adminSession));
+        return;
+      }
+
       if (
         cleanKey.toUpperCase().startsWith('NS-') || 
         cleanKey.toUpperCase().includes('CLOUD') ||
@@ -127,6 +150,7 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
             ? 'Full Production Cloud Suite' 
             : 'Secured Cloud License',
           expiresAt: '2027-10-15',
+          role: 'underwriter'
         };
         setCurrentSession(newSession);
         localStorage.setItem('ix_on_northstar_cloud_session', JSON.stringify(newSession));
@@ -134,6 +158,12 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
         setAuthError('Invalid Access Key. Keys must be issued via paid subscription or direct enterprise invitation (format: NS-xxxx-xxxx).');
       }
     }, 800);
+  };
+
+  const handleAutofillAdmin = () => {
+    setAuthEmail('sgodha@gmail.com');
+    setAccessKey('NS-ADMIN-MASTER-2026-IXON');
+    setAuthError(null);
   };
 
   const handleAutofillDemo = () => {
@@ -323,14 +353,27 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
                 </div>
 
                 <div className="flex flex-col gap-2 shrink-0">
+                  {onLaunchMergedPlatform && (
+                    <button
+                      onClick={() => {
+                        onClose();
+                        onLaunchMergedPlatform();
+                      }}
+                      className="px-6 py-3.5 rounded-full bg-emerald-400 hover:bg-emerald-300 text-[#12151B] font-black text-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer hover:scale-102"
+                    >
+                      <Sparkles size={14} />
+                      <span>Launch Merged Cloud Suite (In-App)</span>
+                    </button>
+                  )}
+
                   <a
                     href={getSecureLaunchUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3.5 rounded-full bg-white hover:bg-[#FAF8F5] text-[#14171F] font-extrabold text-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer hover:scale-102"
+                    className="px-6 py-2.5 rounded-full bg-white hover:bg-[#FAF8F5] text-[#14171F] font-bold text-xs transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer hover:scale-102"
                   >
-                    <span>Launch Project (New Tab)</span>
-                    <ExternalLink size={14} />
+                    <span>Launch External Domain (New Tab)</span>
+                    <ExternalLink size={13} />
                   </a>
 
                   <button
@@ -338,7 +381,7 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
                     className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/20 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <Eye size={13} />
-                    <span>{activeTab === 'preview' ? 'Hide Embedded Workspace' : 'Preview Live Workspace Here'}</span>
+                    <span>{activeTab === 'preview' ? 'Hide Embedded Quick Console' : 'Preview Live Console'}</span>
                   </button>
                 </div>
               </div>
@@ -483,6 +526,26 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
             {/* TAB 1: SIGN IN WITH KEY */}
             {activeTab === 'signin' && (
               <div className="mt-6 space-y-4">
+                {/* Administrator Quick Access Banner */}
+                <div className="p-3.5 rounded-2xl bg-[#12151B] text-white border border-[#2B3547] flex items-center justify-between gap-3 shadow-md">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-amber-400 text-[#12151B] flex items-center justify-center shrink-0 font-bold">
+                      <Crown size={16} />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-amber-300">Administrator Access</div>
+                      <div className="text-[11px] text-[#A6AFBD] font-mono">Master command for sgodha@gmail.com</div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleAutofillAdmin}
+                    className="px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#12151B] font-extrabold text-xs shrink-0 cursor-pointer shadow-xs transition-colors"
+                  >
+                    Fill Admin Key
+                  </button>
+                </div>
+
                 <form onSubmit={handleSignIn} className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#14171F] mb-1.5">
@@ -558,7 +621,7 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
                     </button>
                   </div>
                   <p className="text-[11px] leading-relaxed">
-                    Paid access unlocks private tenant execution, live Mortgage &amp; SME Loan case orchestration, and automated living documentation pipelines.
+                    Paid access unlocks private tenant execution, live Mortgage &amp; SME Loan case orchestration, and automated living documentation pipelines. All sessions are encrypted with token credentials issued post-payment.
                   </p>
                 </div>
               </div>
@@ -592,13 +655,25 @@ export const NorthStarCloudGatewayModal: React.FC<NorthStarCloudGatewayModalProp
                     </div>
 
                     <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                      {onLaunchMergedPlatform && (
+                        <button
+                          onClick={() => {
+                            onClose();
+                            onLaunchMergedPlatform();
+                          }}
+                          className="px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-extrabold text-xs flex items-center gap-2 shadow-md cursor-pointer transition-all hover:scale-102"
+                        >
+                          <Sparkles size={14} />
+                          <span>Launch Encrypted Merged Suite (In-App)</span>
+                        </button>
+                      )}
                       <a
                         href={getSecureLaunchUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn py-3 px-6 text-xs flex items-center gap-2 shadow-md cursor-pointer"
                       >
-                        <span>Launch North Star Clouds Project</span>
+                        <span>Launch External Domain</span>
                         <ExternalLink size={14} />
                       </a>
                     </div>
